@@ -1,4 +1,4 @@
-[api]
+logLevel = "INFO"
 
 [docker]
 exposedByDefault = false
@@ -16,6 +16,11 @@ email = "dacioromero@gmail.com"
 storage = "acme.json"
 entryPoint = "https"
 onHostRule = true
+  [acme.httpChallenge]
+  entryPoint = "http"
+  [acme.dnsChallenge]
+  provider = "digitalocean"
 
-[acme.httpChallenge]
-entryPoint = "http"
+[[acme.domains]]
+  main = "*.dacio.app"
+  sans = ["dacio.app"]
