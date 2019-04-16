@@ -1,15 +1,22 @@
 logLevel = "INFO"
 
+[api]
+
 [docker]
+domain = "dacio.app"
 exposedByDefault = false
+watch = true
+network = "web"
 
 [entryPoints]
   [entryPoints.http]
   address = ":80"
+    [entryPoints.http.redirect]
+    entryPoint = "https"
+
   [entryPoints.https]
   address = ":443"
     [entryPoints.https.tls]
-
 
 [acme]
 email = "dacioromero@gmail.com"
@@ -18,9 +25,10 @@ entryPoint = "https"
 onHostRule = true
   [acme.httpChallenge]
   entryPoint = "http"
+
   [acme.dnsChallenge]
   provider = "digitalocean"
 
-[[acme.domains]]
-  main = "*.dacio.app"
-  sans = ["dacio.app"]
+  [[acme.domains]]
+    main = "*.dacio.app"
+    sans = ["dacio.app"]
