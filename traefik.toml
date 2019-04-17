@@ -1,6 +1,7 @@
-logLevel = "INFO"
+logLevel = "WARN"
+defaultEntryPoints = ["https","http"]
 
-[api]
+# [api]
 
 [docker]
 domain = "dacio.app"
