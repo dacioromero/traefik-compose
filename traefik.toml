@@ -12,6 +12,7 @@ network = "web"
 [entryPoints]
   [entryPoints.http]
   address = ":80"
+  compress = true
     [entryPoints.http.redirect]
     entryPoint = "https"
 
